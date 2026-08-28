@@ -42,7 +42,30 @@ int main()
            }
        }
     }
-    cout<<p;
+
+    // cout<<p;
+     int i = 0;
+    int sum = 0;
+    int ans = 0;
+
+    for (int j = 0; j < n; j++)
+    {
+        // Add current element
+        sum += nums[j];
+
+        // If sum exceeds K,
+        // remove elements from left
+        while (sum > k)
+        {
+            sum -= nums[i];
+            i++;
+        }
+
+        // Current window [i ... j]
+        ans = max(ans, j - i + 1);
+    }
+
+    cout << "Optimized Answer: " << ans << endl;
 
 
 
